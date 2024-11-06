@@ -2,17 +2,12 @@
 pragma solidity ^0.8.0;
 contract MiniSocial{
     event NewPostEvent(string Message, address PostOwner, uint PostTime, uint PostId);
-    struct Comment{
-        address author;
-        string content;
-        uint num_likes_com;
-    }
+
     struct Post{
         uint id;
         string message;
         address author;
         uint num_likes;
-        uint num_comments;
     }
 
     Post[] private Posts;
@@ -41,7 +36,6 @@ contract MiniSocial{
         require(bytes(_message).length <= 140, "Post is too long.");
         uint index = Posts.length + 1;
         uint num_likes;
-        uint num_comments;
         address author = msg.sender;
         Posts.push(Post(index,_message, author,num_likes,num_comments));
     }
