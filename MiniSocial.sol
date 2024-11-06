@@ -37,7 +37,7 @@ contract MiniSocial{
         uint index = Posts.length + 1;
         uint num_likes;
         address author = msg.sender;
-        Posts.push(Post(index,_message, author,num_likes,num_comments));
+        Posts.push(Post(index,_message, author,num_likes));
     }
 
 
